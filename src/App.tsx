@@ -14,8 +14,17 @@ function App() {
 	const [todo, setTodo] = useState<TodoList>([]);
 	const [newTodo, setNewTodo] = useState("");
 
-	function handleNewTodoEvent(data: TodoItem) {
-		setTodo([...todo, data]);
+	function handleNewTodoEvent() {
+		const data: TodoItem = {
+			id: nextId++,
+			todo: newTodo,
+			date: "03/05/24",
+		};
+		if (newTodo !== "") {
+			setTodo([...todo, data]);
+		} else {
+			console.error("Cannot set empty todo.");
+		}
 		setNewTodo("");
 	}
 
@@ -29,22 +38,14 @@ function App() {
 					value={newTodo}
 					onChange={(e) => setNewTodo(e.target.value)}
 				/>
-				<button
-					onClick={() =>
-						handleNewTodoEvent({
-							id: nextId++,
-							todo: newTodo,
-							date: "03/05/24",
-						})
-					}
-				>
-					Add item
-				</button>
-				<ul>
-					{todo.map((item: TodoItem) => {
-						return <li key={item.id}>{item.todo}</li>;
-					})}
-				</ul>
+				<button onClick={() => handleNewTodoEvent()}>Add item</button>
+				<div className="todo-items">
+					<ul>
+						{todo.map((item: TodoItem) => {
+							return <li key={item.id}>{item.todo}</li>;
+						})}
+					</ul>
+				</div>
 			</div>
 		</div>
 	);
