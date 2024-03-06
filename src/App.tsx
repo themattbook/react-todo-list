@@ -31,14 +31,16 @@ function App() {
 	return (
 		<div className="container">
 			<div className="todo-list">
-				<h1>React Todo List</h1>
-				<input
-					type="text"
-					placeholder="New todo"
-					value={newTodo}
-					onChange={(e) => setNewTodo(e.target.value)}
-				/>
-				<button onClick={() => handleNewTodoEvent()}>Add item</button>
+				<div className="todo-input">
+					<h1>React Todo List</h1>
+					<input
+						type="text"
+						placeholder="New todo"
+						value={newTodo}
+						onChange={(e) => setNewTodo(e.target.value)}
+					/>
+					<button onClick={() => handleNewTodoEvent()}>Add item</button>
+				</div>
 				<div className="todo-items">
 					<ul>
 						{todo.map((item: TodoItem) => {

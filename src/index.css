@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 :root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-family: "Outfit", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
 	line-height: 1.5;
 	font-weight: 400;
 
@@ -22,17 +25,36 @@
 
 .container {
 	display: grid;
-	grid-template-columns: 1rem [todo-area] 1fr [todo-area] 1rem;
+	grid-template-columns: 1fr [todo-area-start] 1fr [todo-area-end] 1fr;
+	justify-content: center;
 }
 
 .todo-list {
 	display: grid;
 	grid-area: todo-area;
-	justify-content: center;
+	width: 100%;
 }
 
 .todo-items {
 	padding-top: 1rem;
+}
+
+.todo-items li {
+	border: 1px solid #ffffff;
+	box-sizing: border-box;
+	padding: 1rem;
+	margin-block: 1rem;
+	width: 100%;
+}
+
+.todo-input {
+	display: grid;
+	align-items: center;
+}
+
+.todo-input,
+.todo-items {
+	width: 100%;
 }
 
 ul {
@@ -40,13 +62,28 @@ ul {
 	padding: 0;
 }
 
-li {
-	padding-top: 0.5rem;
+input {
+	border: none;
+	border-radius: 9999px;
+	padding: 10px;
+	margin-top: 1rem;
+}
+
+button {
+	background-color: rgb(54, 159, 54);
+	border: none;
+	border-radius: 9999px;
+	font-weight: bold;
+	padding: 10px;
+	margin-top: 1em;
 }
 
 @media (prefers-color-scheme: light) {
 	:root {
 		color: #213547;
 		background-color: #ffffff;
+	}
+	.todo-items li {
+		border: 1px solid #213547;
 	}
 }
