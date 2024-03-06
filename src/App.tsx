@@ -27,7 +27,6 @@ function App() {
 		}
 		setNewTodo("");
 	}
-
 	return (
 		<div className="container">
 			<div className="todo-list">
